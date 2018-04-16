@@ -8,7 +8,7 @@ class NoiseMaker():
         self.number = number
         self.noise = noise
 
-        data = arff.loadarff('dataset/Ursprungsset/AbruptW1F1F5.arff')
+        data = arff.loadarff('dataset/Ursprungsset/AbruptW1F5F6.arff')
         df = pd.DataFrame(data[0])
         count_noisepoints = 0
         total_points = 0
@@ -75,7 +75,7 @@ class NoiseMaker():
 
 
         import re
-        d = {'AbruptW1F1F5Noise%02.1fN%d.html'%(noise,number):
+        d = {'AbruptW1F5F6Noise%02.1fN%d.html'%(noise,number):
               data_points}
 
 
@@ -102,7 +102,7 @@ class NoiseMaker():
         @data
 
         ''')
-                for word_and_count in d['AbruptW1F1F5Noise%02.1fN%d.html'%(noise,number)]:
+                for word_and_count in d['AbruptW1F5F6Noise%02.1fN%d.html'%(noise,number)]:
                     #print(word_and_count)
                     fp.write("%s," % word_and_count[0])
                     fp.write("%s," % word_and_count[1])
