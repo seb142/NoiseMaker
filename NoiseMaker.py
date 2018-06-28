@@ -4,11 +4,11 @@ import random
 import decimal
 
 class NoiseMaker():
-    def __init__(self, number, noise):
+    def __init__(self, number, noise,fxtofy):
         self.number = number
         self.noise = noise
 
-        data = arff.loadarff('dataset/Ursprungsset/AbruptW1F5F6.arff')
+        data = arff.loadarff('dataset/Ursprungsset/GradualW1000%s.arff'%(fxtofy))
         df = pd.DataFrame(data[0])
         count_noisepoints = 0
         total_points = 0
@@ -75,7 +75,7 @@ class NoiseMaker():
 
 
         import re
-        d = {'AbruptW1F5F6Noise%02.1fN%d.html'%(noise,number):
+        d = {'GradualW1000%sNoise%sN%s.html'%(fxtofy,noise,number):
               data_points}
 
 
@@ -102,7 +102,7 @@ class NoiseMaker():
         @data
 
         ''')
-                for word_and_count in d['AbruptW1F5F6Noise%02.1fN%d.html'%(noise,number)]:
+                for word_and_count in d['GradualW1000%sNoise%sN%s.html'%(fxtofy,noise,number)]:
                     #print(word_and_count)
                     fp.write("%s," % word_and_count[0])
                     fp.write("%s," % word_and_count[1])
